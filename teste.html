@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .inicio {
+      width: 100%;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container-inicio {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .conteudo-inicio {
+      text-align: center;
+      gap: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .titulo-inicio {
+      font-size: clamp(1rem, 2.5vw + 0.8rem, 3rem);
+      font-family: sans-serif;
+      font-weight: normal;
+    }
+
+    .paragrafo-inicio p {
+      font-size: clamp(1.2rem, 1.5vw + 1rem, 2rem);
+      max-width: 900px;
+      color: gray;
+      font-family: sans-serif;
+    }
+    .cta{
+        position: relative;
+        margin: auto;
+        padding: 12px 18px;
+        border: none;
+        background: none;
+        cursor: pointer;
+        
+    }
+    .cta span {
+    font-size: clamp(1.2rem, 1.5vw + 1rem, 2rem);
+}
+
+
+.cta:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    border-radius: 50px;
+    background: var(--color-destaque2);
+    width: 45px;
+    height: 45px;
+    transition: all 0.3s ease;
+}
+
+.cta span {
+    position: relative;
+    font-family: var(--font-pequena);
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: var(--color-white);
+}
+
+.cta svg {
+    position: relative;
+    top: 0;
+    margin-left: 10px;
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke: var(--color-destaque2);
+    stroke-width: 2;
+    transform: translateX(-5px);
+    transition: all 0.3s ease;
+}
+
+.cta:hover:before {
+    width: 100%;
+    background: var(--color-destaque2);
+}
+
+.cta:hover svg {
+    transform: translateX(0);
+    stroke: var(--color-destaque1);
+}
+
+.cta:active {
+    transform: scale(0.95);
+}
+.complemento-inicio {
+    position: absolute;
+    bottom: 2rem;
+    width: 100vw;
+    padding: 0rem 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.complemento-inicio .text {
+    width: 200px;
+}
+
+.complemento-inicio .qr-code {
+    width: 80px;
+    opacity: .2;
+    transition: all .5s ease-in-out;
+}
+    .sobre{
+        width: 100%;
+        height: 100vh;
+        align-items: center;
+        justify-items: center;
+        display: flex;
+        padding: 2rem 1rem;
+        
+    }
+    .container-sobre{
+        width:100% ;
+        height: 100%;
+        align-items: center;
+        justify-items: space-betwwen;
+        display: flex;
+        flex-direction: column;
+    }
+    .headline-sobre {
+    height: 30%;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+}
+
+.headline-scroll {
+    display: flex;
+    align-items: center;
+    white-space: nowrap;
+    animation: scroll 20s linear infinite;
+}
+
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+.headline-scroll span {
+    font-family: var(--font-grande);
+    font-size: 5rem;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+}
+
+.headline-scroll .divisor {
+    width: 20px;
+    height: 20px;
+    background-color: var(--color-gray2);
+    border-radius: 50%;
+    margin: 0 20px;
+}
+
+.headline-scroll .bold {
+    font-weight: bold;
+    color: var(--color-white);
+}
+
+.headline-scroll .light {
+    font-weight: lighter;
+    color: var(--color-gray2);
+}
+.conteudo-sobre{
+    position: relative;
+    width: 100%;
+    height: 70%;
+    top: 30%;
+    display: flex;
+}
+.left-sobre {
+    color: var(--color-white);
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left;
+    gap: 3rem;
+}
+
+.textos-sobre h1 {
+    font-size: 3rem;
+    font-family: var(--font-grande);
+}
+
+.textos-sobre p {
+    font-size: 1.5rem;
+    color: var(--color-gray2);
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: 1.5px;
+}
+  </style>
+</head>
+<body>
+  <main id="inicio" class="inicio">
+    <div class="container-inicio">
+      <div class="conteudo-inicio">
+        <div class="titulo-inicio">
+          <h1>Título Início</h1>
+          <h2>Olá, tudo bem?</h2>
+        </div>
+        <div class="paragrafo-inicio">
+          <p>Este é um parágrafo de exemplo.</p>
+        </div>
+      </div>
+      <button class="cta">
+        <span>Fale comigo</span>
+        <svg width="15px" height="10px" viewBox="0 0 13 10">
+            <path d="M1,5 L11,5"></path>
+            <polyline points="8 1 12 5 8 9"></polyline>
+        </svg>
+
+            </button>
+        </div>
+      </div>
+      <section id="sobre" class="sobre">
+        <div class="container-sobre">
+            <div class="headline-sobre" data-aos="fade-up" data-aos-duration="1000">
+                <div class="headline-scroll" id="headline-scroll">
+                    <span class="bold">SOBRE</span>
+                    <span class="divisor"></span>
+                    <span class="light">SOBRE</span>
+                    <span class="divisor"></span>
+                    <span class="bold">SOBRE</span>
+                    <span class="divisor"></span>
+                    <span class="light">SOBRE</span>
+                    <span class="divisor"></span>
+                    <span class="bold">SOBRE</span>
+                    <span class="divisor"></span>
+                    <span class="light">SOBRE</span>
+                    <span class="divisor"></span>
+                </div>
+            <div class="conteudo-sobre">
+                <div class="left-sobre" data-aos="fade-right" data-aos-duration="1000">
+                <div class="titulo-sobre">
+                    <h1>Sobre a minha loja</h1>
+                </div>
+                <div class="redes-sociais">
+                    <a href="#">INSTAGRAM<i class="bi bi-arrow-right"></i></a>
+                    <a href="#">GITHUB<i class="bi bi-arrow-right"></i></a>
+                    <a href="#">FACEBOOK<i class="bi bi-arrow-right"></i></a>
+                    <a href="#">LINKEDIN<i class="bi bi-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+      </section>
+    </div>
+  </main>
+</body>
+</html>

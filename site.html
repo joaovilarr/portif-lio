@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas de Carros</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<style>
+  /* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem 0;
+    text-align: center;
+
+}
+
+header .logo h1 {
+    margin-left: 20px;
+    font-size: 1.8rem;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+}
+
+nav ul li {
+    margin: 0 15px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1rem;
+}
+
+nav ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Home Section */
+section#home {
+    text-align: center;
+    background-color: #e4e4e4;
+    padding: 3rem;
+}
+
+section#home .btn {
+    margin-top: 20px;
+}
+
+/* Carros Section */
+section#carros {
+    padding: 3rem 0;
+}
+
+section#carros h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.filtro {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+#preco {
+    width: 80%;
+    max-width: 500px;
+    margin: 10px 0;
+}
+
+#preco-label {
+    font-weight: bold;
+}
+
+/* Lista de Carros */
+.carros-list {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+.carro {
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    margin: 100px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.carro:hover {
+    transform: translateY(-10px);
+}
+
+.carro-imagem {
+    width: 100%;
+    overflow: hidden;
+}
+
+.carro-slider {
+    position: relative;
+    overflow: hidden;
+    height: 200px;
+}
+
+.carro-slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none;
+}
+
+.carro-slider img:first-child {
+    display: block;
+}
+
+.carro:hover .carro-slider img:first-child {
+    display: none;
+}
+
+.carro:hover .carro-slider img:last-child {
+    display: block;
+}
+
+.carro .info {
+    padding: 15px;
+    text-align: center;
+}
+
+.carro .info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.carro .info p {
+    margin: 5px 0;
+}
+
+.btn {
+    display: inline-block;
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.btn:hover {
+    background-color: #555;
+}
+
+/* Contato Section */
+section#contato {
+    padding: 3rem;
+    background-color: #fff;
+    text-align: center;
+}
+
+form {
+    max-width: 600px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+form input, form textarea {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    padding: 10px;
+    background-color: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #555;
+}
+
+#form-mensagem {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: green;
+}
+
+.hidden {
+    display: none;
+}
+
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+
+</style>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vendas de Carros</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <div class="logo">
+            <h1>Loja de Carros</h1>
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#home">Início</a></li>
+                <li><a href="#carros">Carros</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home">
+        <div class="container">
+            <h2>Encontre o Carro dos Seus Sonhos!</h2>
+            <p>Oferecemos carros novos e seminovos com preços imbatíveis. Veja as ofertas incríveis abaixo!</p>
+            <a href="#carros" class="btn">Ver Carros à Venda</a>
+        </div>
+    </section>
+
+    <section id="carros">
+        <h2>Carros à Venda</h2>
+        <div class="filtro">
+            <label for="preco">Filtrar por Preço:</label>
+            <input type="range" id="preco" min="0" max="100000" step="5000" value="50000" oninput="updatePriceLabel(this.value)">
+            <span id="preco-label">R$ 50.000</span>
+        </div>
+        
+        <div class="carros-list">
+            <div class="carro" data-preco="30000">
+                <div class="carro-imagem">
+                    <div class="carro-slider">
+                        <img src="lancer.jpg" alt="Carro 1">
+                        <img src="carro1_2.jpg" alt="Carro 1 Detalhe">
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>Carro 1</h3>
+                    <p>Preço: R$ 30.000</p>
+                    <p>Modelo: Lancer Evolution 2020</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+
+            <div class="carro" data-preco="50000">
+                <div class="carro-imagem">
+                    <div class="carro-slider">
+                        <img src="carro2.jpg" alt="Carro 2">
+                        <img src="carro2_2.jpg" alt="Carro 2 Detalhe">
+                    </div>
+                </div>
+                <div class="info">
+                    <h3>Carro 2</h3>
+                    <p>Preço: R$ 50.000</p>
+                    <p>Modelo: SUV 2021</p>
+                    <a href="#" class="btn">Ver Detalhes</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato">
+        <h2>Entre em Contato</h2>
+        <form id="contact-form">
+            <input type="text" id="nome" placeholder="Seu nome" required>
+            <input type="email" id="email" placeholder="Seu email" required>
+            <textarea id="mensagem" placeholder="Mensagem" required></textarea>
+            <button type="submit" class="btn">Enviar</button>
+        </form>
+        <div id="form-mensagem" class="hidden"></div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Loja de Carros | Todos os direitos reservados</p>
+    </footer>
+
+</body>
+</html>
